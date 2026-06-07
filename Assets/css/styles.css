@@ -1,16 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-
-/*
-HEX COLORS: 
-    BODY BKF: #6F4E37 / 111, 78, 55 (coffee brown)
-    SEC COLOR #92684A / 146, 104, 74 (light brown)
-*/
-
-:root {
-    --body-bg-color: #2f2319;
-    --sec-color: #92684A;
-    --contacts-bg-color: #1c150e;
-}
+@import './Assets/css/variables.css';
 
 body.light-mode {
     --body-bg-color: #e9d7c5;
@@ -33,6 +21,7 @@ body {
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
+    background-color: #1c150e;
 }
 
 .title-welcome {
