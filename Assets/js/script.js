@@ -1,37 +1,77 @@
-// botao mudar tema claro/escuro/coffee
 (function () {
-        const themes = ['light', 'dark'];
-        const themeClassMap = {
-            light: 'light-mode',
-            dark: 'dark-mode',
-        };
+    const themes = ['coffee', 'cyberpunk'];
+    const storageKey = 'portfolioTheme';
     const body = document.body;
 
-    // load saved index (string) -> int
-    let currentThemeIndex = localStorage.getItem('savedThemeIndex');
-    if (currentThemeIndex === null) currentThemeIndex = 0;
-    else currentThemeIndex = parseInt(currentThemeIndex, 10) || 0;
-
-    function applyTheme(themeName) {
-            Object.values(themeClassMap).forEach(c => body.classList.remove(c));
-            const cls = themeClassMap[themeName] || null;
-            if (cls) body.classList.add(cls);
-
-        localStorage.setItem('savedThemeIndex', currentThemeIndex);
+    let currentTheme = localStorage.getItem(storageKey);
+    if (currentTheme === 'cafe') {
+        currentTheme = 'coffee';
+    }
+    if (!themes.includes(currentTheme)) {
+        currentTheme = 'coffee';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        applyTheme(themes[currentThemeIndex]);
+        const themeButton = document.getElementById('btn-theme-toggle');
+        const themeMenu = document.getElementById('theme-menu');
 
-        const btn = document.getElementById('btn-theme-toggle');
-        if (!btn) {
-            console.warn('Theme toggle button not found: #btn-theme-toggle');
-            return;s
+        if (!themeButton || !themeMenu) {
+            console.warn('Theme controls not found: #btn-theme-toggle or #theme-menu');
+            return;
         }
 
-        btn.addEventListener('click', () => {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            applyTheme(themes[currentThemeIndex]);
+        const themeOptions = Array.from(themeMenu.querySelectorAll('[data-theme-option]'));
+
+        function setMenuOpen(isOpen) {
+            themeMenu.hidden = !isOpen;
+            themeButton.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        function syncActiveTheme(themeName) {
+            themeOptions.forEach((option) => {
+                const isActive = option.dataset.themeOption === themeName;
+                option.classList.toggle('is-active', isActive);
+                option.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        function applyTheme(themeName) {
+            const nextTheme = themes.includes(themeName) ? themeName : 'coffee';
+            currentTheme = nextTheme;
+            body.dataset.theme = nextTheme;
+            localStorage.setItem(storageKey, nextTheme);
+            syncActiveTheme(nextTheme);
+        }
+
+        applyTheme(currentTheme);
+        setMenuOpen(false);
+
+        themeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMenuOpen(themeMenu.hidden);
+        });
+
+        themeMenu.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
+        themeOptions.forEach((option) => {
+            option.addEventListener('click', () => {
+                applyTheme(option.dataset.themeOption);
+                setMenuOpen(false);
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!themeMenu.hidden && !themeMenu.contains(event.target) && !themeButton.contains(event.target)) {
+                setMenuOpen(false);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setMenuOpen(false);
+            }
         });
     });
 })();

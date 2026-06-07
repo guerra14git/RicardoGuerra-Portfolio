@@ -1,12 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-:root {
-    --body-bg-color: #2f2319;      
-    --contacts-bg-color: #1c150e;   
-    --sec-color: #92684A;           
-   
-    --text-main: #f5efe6;         
-    --text-muted: #a7988a;          
+:root,
+body[data-theme="coffee"] {
+    --body-bg-color: #2f2319;
+    --section-top-bg-color: #613e26;
+    --contacts-bg-color: #1c150e;
+    --sec-color: #92684a;
+    --text-main: #d1c2b7;
+    --text-muted: #a7988a;
+    --card-bg: #222222;
+    --card-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%);
+    --menu-bg: rgba(47, 35, 25, 0.96);
+    --menu-border: rgba(146, 104, 74, 0.4);
+    --menu-option-bg: rgba(146, 104, 74, 0.14);
+    --menu-option-hover: rgba(146, 104, 74, 0.24);
+    --menu-option-active: rgba(245, 239, 230, 0.1);
+    --menu-option-text: #f5efe6;
+    --menu-option-muted: #d5c6b9;
+    --icon-chip-bg: rgba(255, 255, 255, 0.85);
+    --icon-chip-bg-hover: rgba(255, 255, 255, 1);
+    --icon-color: #5f3e29;
+    --icon-surface: rgba(146, 104, 74, 0.24);
+    --icon-surface-hover: rgba(146, 104, 74, 0.34);
+    --icon-border: rgba(146, 104, 74, 0.45);
+    --bmc-bg: #92684a;
+    --bmc-bg-hover: #a87755;
+    --bmc-text: #f5efe6;
+    --bmc-border: rgba(245, 239, 230, 0.35);
+    --font-main: 'Fira Code', monospace;
+}
 
+body[data-theme="cyberpunk"] {
+    --body-bg-color: #140d21;
+    --section-top-bg-color: #2d1450;
+    --contacts-bg-color: #0f0917;
+    --sec-color: #b86dff;
+    --text-main: #ca9ed2;
+    --text-muted: #c9b3df;
+    --card-bg: #1c132a;
+    --card-overlay: linear-gradient(to top, rgba(16, 7, 30, 0.88), transparent 62%);
+    --menu-bg: rgba(20, 13, 33, 0.96);
+    --menu-border: rgba(184, 109, 255, 0.45);
+    --menu-option-bg: rgba(184, 109, 255, 0.14);
+    --menu-option-hover: rgba(184, 109, 255, 0.24);
+    --menu-option-active: rgba(247, 239, 255, 0.1);
+    --menu-option-text: #f7efff;
+    --menu-option-muted: #ccb7e5;
+    --icon-chip-bg: rgba(224, 198, 255, 0.92);
+    --icon-chip-bg-hover: rgba(240, 224, 255, 1);
+    --icon-color: #f2d8ff;
+    --icon-surface: rgba(184, 109, 255, 0.22);
+    --icon-surface-hover: rgba(184, 109, 255, 0.34);
+    --icon-border: rgba(184, 109, 255, 0.45);
+    --bmc-bg: #8b49d3;
+    --bmc-bg-hover: #9f5ce8;
+    --bmc-text: #f7efff;
+    --bmc-border: rgba(247, 239, 255, 0.35);
     --font-main: 'Fira Code', monospace;
 }

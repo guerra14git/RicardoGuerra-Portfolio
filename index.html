@@ -5,19 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ricardo Guerra - Portfolio</title>
     <link rel="icon" href="./Assets/icons/icon_principal.ico" type="image/x-icon" style="border-radius: 50%;">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./Assets/css/styles.css">
 </head>
 <body>
     <h1 class="section-top">
-        <button class="btn-icon" id="btn-theme-toggle">
-            <img src="./Assets/icons/bright_icon.png" alt="bright_icon">
-        </button>
-    <p class="title-welcome">Link Hub</p>
-        <button class="btn-icon" id="btn-config">
-            <img src="./Assets/icons/config_icon.png" alt="config_icon">
+        <div class="theme-switcher">
+            <button class="btn-icon" id="btn-theme-toggle" type="button" aria-label="Open theme menu" aria-haspopup="true" aria-controls="theme-menu" aria-expanded="false">
+                <i class="bi bi-palette2 icon-glyph" aria-hidden="true"></i>
+            </button>
+            <div class="theme-menu" id="theme-menu" hidden>
+                <button class="theme-option" type="button" data-theme-option="coffee" aria-pressed="true">
+                    <span class="theme-option-label">
+                        <strong>Coffee</strong>
+                        <span>Warm, earthy, current palette</span>
+                    </span>
+                </button>
+                <button class="theme-option" type="button" data-theme-option="cyberpunk" aria-pressed="false">
+                    <span class="theme-option-label">
+                        <strong>Cyberpunk</strong>
+                        <span>Futuristic, purple, neon palette</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <p class="title-welcome">Ricardo Guerra - Portfolio</p>
+        <button class="btn-icon" id="btn-config" type="button" aria-label="Open settings">
+            <i class="bi bi-sliders icon-glyph" aria-hidden="true"></i>
         </button>
     </h1>
-    
+
     <main class="section-middle">
         <div class="avatar-container">
             <img src="./Assets/img/myImg.jpeg" alt="Avatar">
@@ -112,20 +129,23 @@
     <div class="section-contacts">
         <h3 data-long="contact">Contact Me</h3>
         <div class="bmc-container">
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="guerra14" data-color="#92684a" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#483324" data-font-color="#483324" data-coffee-color="#3d2b1e" ></script>
+            <a class="bmc-button" href="https://www.buymeacoffee.com/guerra14" target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee">
+                <i class="bi bi-cup-hot icon-glyph icon-coffee" aria-hidden="true"></i>
+                <span>Buy me a coffee</span>
+            </a>
         </div>
         <div class="contacts-container">
-            <button class="btn-icon" id="btn-config">
-                <img src="./Assets/icons/github_icon.png" alt="github_icon">
+            <button class="btn-icon" type="button" aria-label="GitHub">
+                <i class="bi bi-github icon-glyph" aria-hidden="true"></i>
             </button>
-            <button class="btn-icon" id="btn-config">
-                <img src="./Assets/icons/instagram_icon.png" alt="instagram_icon">
+            <button class="btn-icon" type="button" aria-label="Instagram">
+                <i class="bi bi-instagram icon-glyph" aria-hidden="true"></i>
             </button>
-            <button class="btn-icon" id="btn-config">
-                <img src="./Assets/icons/mail_icon.png" alt="mail_icon">
+            <button class="btn-icon" type="button" aria-label="Email">
+                <i class="bi bi-envelope icon-glyph" aria-hidden="true"></i>
             </button>
-            <button class="btn-icon" id="btn-config">
-                <img src="./Assets/icons/LinkedIn_icon.png" alt="LinkedIn_icon">
+            <button class="btn-icon" type="button" aria-label="LinkedIn">
+                <i class="bi bi-linkedin icon-glyph" aria-hidden="true"></i>
             </button>
         </div>
     </div>
