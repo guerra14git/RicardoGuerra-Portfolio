@@ -19,7 +19,7 @@ This repository is a minimal, static site you can open locally in a browser to k
 - `icons/` and `img/` — image assets used by the page.
 
 ## Use
-https://guerra14git.github.io/LinkHub/
+https://ricardoguerra.dev/
 
 ## License
 
